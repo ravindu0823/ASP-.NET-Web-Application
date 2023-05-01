@@ -55,7 +55,7 @@
                                 <label>Email Address</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <asp:TextBox class="form-control" ID="TextBox1" runat="server" placeholder="example@.com"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="example@.com"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -63,7 +63,7 @@
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                    
-                                    <asp:TextBox class="form-control" ID="password" runat="server"  placeholder="*********"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="txtPassword" runat="server"  placeholder="*********"></asp:TextBox>
                                     <div class="show-hide"><span class="show"></span></div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 
                             </div> --%>
                             
-                                <asp:Button  class="btn btn-primary btn-block" ID="Button5" runat="server" Text="L O G I N" />
+                                <asp:Button  class="btn btn-primary btn-block" ID="Button5" runat="server" Text="L O G I N" OnClick="Button5_Click" />
                             
                         </form>
                     </div>
