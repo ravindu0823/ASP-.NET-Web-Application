@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="wm_adminHome.aspx.cs" Inherits="WebMasterAdmin.wm_adminHome" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -43,7 +44,133 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 
     <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>4
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <div class="page-body">
+        <div class="container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>ADD New Green Captain</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html" data-bs-original-title="" title="">Home</a></li>
+
+                            <li class="breadcrumb-item active">ADD  Green Captain</li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Bookmark Start-->
+
+                        <!-- Bookmark Ends-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Container-fluid starts-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form theme-form">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+
+                                            <form runat="server">
+                                                <label>Name</label>
+                                                <asp:TextBox class="form-control" ID="TextBox1" runat="server" placeholder="Enter the Full Name "></asp:TextBox>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <label>UserName</label>
+                                                            <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="Enter uniqe User Name "></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <label>Password</label>
+                                                            <asp:TextBox class="form-control" ID="TextBox3" runat="server" placeholder="Enter the Strong password..."></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <label>Contact Number</label>
+                                                            <asp:TextBox class="form-control" ID="TextBox4" runat="server" placeholder="Enter the valid Mobile Number  "></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <label>NIC</label>
+                                                            <asp:TextBox class="form-control" ID="TextBox5" runat="server" placeholder="Enter the NIC Number"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col">
+
+                                                        <asp:Button class="btn btn-danger" ID="Button1" runat="server" Text="ADD" />
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Container-fluid Ends-->
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <!-- feather icon js-->
+    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/sidebar-menu.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <!-- Bootstrap js-->
+    <script src="../assets/js/bootstrap/popper.min.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugins JS start-->
+    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
+    <script src="../assets/js/jsgrid/griddata.js"></script>
+    <script src="../assets/js/jsgrid/jsgrid.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/theme-customizer/customizer.js"></script>
+    <!-- login js-->
+    <!-- Plugin used-->
 </asp:Content>

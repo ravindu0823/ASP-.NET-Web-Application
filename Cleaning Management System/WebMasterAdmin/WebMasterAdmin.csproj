@@ -798,6 +798,7 @@
     <Content Include="assets\images\dashboard\product-4.png" />
     <Content Include="assets\images\dashboard\product-5.png" />
     <Content Include="assets\images\dashboard\safari.png" />
+    <Content Include="assets\images\dashboard\wm.svg" />
     <Content Include="assets\images\details_close.png" />
     <Content Include="assets\images\details_open.png" />
     <Content Include="assets\images\ecommerce\01.jpg" />
@@ -1761,6 +1762,7 @@
     <Content Include="assets\js\vector-map\map\jquery-jvectormap-world-mill-en.js" />
     <Content Include="assets\js\vertical-menu.js" />
     <Content Include="assets\video\auth-bg.mp4" />
+    <Content Include="assets\wm.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2705,6 +2707,7 @@
     <Content Include="assets\scss\whether-icon.scss" />
     <Content Include="assets\scss\whether-icon\_whether-icon.scss" />
     <Content Include="wm_admin.aspx" />
+    <Content Include="wm_adminArtical.aspx" />
     <Content Include="wm_adminHome.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2785,6 +2788,13 @@
     </Compile>
     <Compile Include="wm_admin.aspx.designer.cs">
       <DependentUpon>wm_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wm_adminArtical.aspx.cs">
+      <DependentUpon>wm_adminArtical.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wm_adminArtical.aspx.designer.cs">
+      <DependentUpon>wm_adminArtical.aspx</DependentUpon>
     </Compile>
     <Compile Include="wm_adminHome.aspx.cs">
       <DependentUpon>wm_adminHome.aspx</DependentUpon>

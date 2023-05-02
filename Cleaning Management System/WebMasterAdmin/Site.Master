@@ -4,26 +4,13 @@
 
 <html lang="en">
 <head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hellloworld</title>
-
-    <%--<asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>--%>
-
-    <%--<webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
-
-           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="pixelstrap">
+    <meta name="description" content="Hotel Management System - Admin Panel">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    
+    <title>Cleaning Management System</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -40,9 +27,9 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="../assets/css/feather-icon.css">
     <!-- Plugins css start-->
-         <link rel="stylesheet" type="text/css" href="../assets/css/datatables.css">
-         <link rel="stylesheet" type="text/css" href="../assets/css/owlcarousel.css">
-         <link rel="stylesheet" type="text/css" href="../assets/css/rating.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/owlcarousel.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/rating.css">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
@@ -51,7 +38,7 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-    <link href="../assets/toastr/toastr.min.css" rel="stylesheet"/>
+    <link href="../assets/toastr/toastr.min.css" rel="stylesheet" />
     <link href="../assets/select2/select2.min.css" rel="stylesheet" />
     <link href="../assets/w2ui-w2ui-1.5/dist/w2ui.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -59,68 +46,18 @@
 
 </head>
 <body>
-<%--    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>--%>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <%--<asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />--%>
-                <%--Site Scripts--%>
-<%--            </Scripts>
-        </asp:ScriptManager>--%>
-
-<%--        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
-        </div>--%>
-
- <%--   </form>--%>
-    
-
-        <!-- Loader starts-->
-   
+ 
+   <!-- Loader starts-->
     <!-- Loader ends-->
     <!-- page-wrapper Start-->
     <div class="page-wrapper" id="pageWrapper">
       <!-- Page Header Start-->
       <div class="page-main-header">
         <div class="main-header-right row m-0">
-          <div class="main-header-left">
-             <h6 style="text-align:center">Cleaning Managment System</h6>
+        <div class="main-header-left">
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/dashboard/wm.svg" style="height:60px" alt=""></a></div>
+            <div class="dark-logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/dark-logo.png" alt=""></a></div>
+            <div class="toggle-sidebar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-center status_toggle middle" id="sidebar-toggle" checked="false"><line x1="18" y1="10" x2="6" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="18" y1="18" x2="6" y2="18"></line></svg></div>
           </div>
           <div class="left-menu-header col">
             <!-- include search bar -->
@@ -145,7 +82,7 @@
           <div class="sidebar-user text-center"><img class="img-90 rounded-circle" src="../assets/images/dashboard/1.png" alt="">
             <div class="badge-bottom"><span class="badge badge-primary">Admin</span></div><a href="user-profile.html">
               <h6 class="mt-3 f-14 f-w-600">ADMIN</h6></a>
-            <p class="mb-0 font-roboto">Cleaning Management Department</p>
+            <p class="mb-0 font-roboto">Waste Management Department</p>
 
           </div>
           <nav>
@@ -161,22 +98,16 @@
                       <h6 style="text-align:center">General</h6>
                     </div>
                   </li>
-                  <li class="dropdown"><a class="nav-link menu-title" href="Home.aspx"><i data-feather="home"></i><span>Dashboard</span></a>
+                  <li class="dropdown"><a class="nav-link menu-title" href="wm_adminHome.aspx"><i data-feather="home"></i><span>ADD Green Captain</span></a>
                     
                   </li>
-                  <li class="dropdown"><a class="nav-link menu-title" href="wfRoom.aspx"><i data-feather="airplay"></i><span>Rooms</span></a>
+                  <li class="dropdown"><a class="nav-link menu-title" href="wm_adminArtical.aspx"><i data-feather="airplay"></i><span>Write an artical</span></a>
                     
                   </li>
-                  <li class="dropdown"><a class="nav-link menu-title" href="wfTask.aspx"><i data-feather="layout"></i><span>Tickets</span></a>
-                    
-                  </li>
+                 
                 
-                <li class="dropdown"><a class="nav-link menu-title" href="wfTaskCreate.aspx"><i data-feather="layout"></i><span>Asign Tasks</span></a>
-                  
-                </li>
-                <li class="dropdown"><a class="nav-link menu-title" href="wfEmployee.aspx"><i data-feather="layout"></i><span>Employee</span></a>
-                  
-                </li>
+                
+               
 
                  
                     
@@ -190,18 +121,8 @@
 
           <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-    <footer class="footer">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-6 footer-copyright">
-                <p class="mb-0"></p>
-              </div>
-              <div class="col-md-6">
-                <p class="pull-right mb-0"></p>
-              </div>
-            </div>
-          </div>
-        </footer>
+
+
       
     
 </body>
