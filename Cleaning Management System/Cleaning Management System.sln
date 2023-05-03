@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleaning Management System"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMasterAdmin", "WebMasterAdmin\WebMasterAdmin.csproj", "{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webmasterGTFmember", "webmasterGTFmember\webmasterGTFmember.csproj", "{78805EE1-1B97-44C8-A63B-52A4A4A87552}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

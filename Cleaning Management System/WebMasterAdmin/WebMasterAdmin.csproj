@@ -1004,6 +1004,7 @@
     <Content Include="assets\images\product\3.png" />
     <Content Include="assets\images\product\4.png" />
     <Content Include="assets\images\range-slider\sprite-skin-modern-1.png" />
+    <Content Include="assets\images\sample\img1.jpg" />
     <Content Include="assets\images\sec.svg" />
     <Content Include="assets\images\slider-auto-width\11.jpg" />
     <Content Include="assets\images\slider-auto-width\12.jpg" />
@@ -1761,6 +1762,7 @@
     <Content Include="assets\js\vector-map\map\jquery-jvectormap-us-aea-en.js" />
     <Content Include="assets\js\vector-map\map\jquery-jvectormap-world-mill-en.js" />
     <Content Include="assets\js\vertical-menu.js" />
+    <Content Include="assets\sample\img1.jpg" />
     <Content Include="assets\video\auth-bg.mp4" />
     <Content Include="assets\wm.svg" />
     <Content Include="Content\bootstrap-theme.css" />
