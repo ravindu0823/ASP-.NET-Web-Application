@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head >
+<head>
     <title>GTF Login</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hotel Management System - Admin Login Page">
@@ -41,7 +41,7 @@
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-        <section>
+    <section>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-5">
@@ -56,39 +56,73 @@
                                 <label>Email Address</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="example@.com"></asp:TextBox>
+                                    <input type="text" class="form-control" id="email" placeholder="example@.com" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
-                                   
-                                    <asp:TextBox class="form-control" ID="txtPassword" runat="server"  placeholder="*********"></asp:TextBox>
+
+                                    <input type="password" class="form-control" id="password" placeholder="*********" />
                                     <div class="show-hide"><span class="show"></span></div>
                                 </div>
                             </div>
-                            <%-- <div class="form-group">
-                                <div class="checkbox">
-                                    <input id="checkbox1" type="checkbox">
-                                    <label class="text-muted" for="checkbox1">Remember password</label>
-                                </div>
-                                
-                            </div> --%>
-                            
-                                
-                            <asp:Button  class="btn btn-primary btn-block" ID="Button1" runat="server"  Text="L O G I N" />
-                            <label>Do you have not account? </label> 
+
+                            <button type="button" class="btn btn-primary btn-block" onclick="AuthenticateMember()">L O G I N</button>
+                            <label>Do you have not account? </label>
                             <a href="./wmGTFReg.aspx">Register</a>
-                        
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
+        <script defer>
+            function AuthenticateMember() {
+                var email = $('#email').val();
+                var password = $('#password').val();
 
-        </section>
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:44362/CleaningService.svc/AuthenticateMember",
+                    data: JSON.stringify({
+                        "rEF_GTFMember": {
+                            EMAIL: email,
+                            PASSWORD: password
+                        }
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+
+
+                        var obj = JSON.parse(data.AuthenticateMemberResult);
+                        console.log(obj);
+
+                        if (obj.dataTable.length > 0) {
+                            const memberName = obj.dataTable[0].full_name;
+                            const memberId = obj.dataTable[0].id;
+
+                            sessionStorage.setItem("member_name", memberName);
+                            sessionStorage.setItem("member_id", memberId);
+
+                            window.alert("Welcome " + memberName);
+                            window.location.replace("https://localhost:44369/wmGTF");
+                        } else {
+                            window.alert("Username and Password is incorrect");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                })
+            }
+        </script>
+
+
+    </section>
     <!-- page-wrapper end-->
 
     <!-- feather icon js-->

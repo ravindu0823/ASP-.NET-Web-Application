@@ -45,7 +45,19 @@
 
     <!-- latest jquery-->
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
-    
+
+    <script>
+        window.onload = function () {
+            var sessionId = sessionStorage.getItem('admin_id');
+            console.log(sessionId);
+
+
+            if (sessionId == null) {
+                window.location.replace("https://localhost:44361/wm_admin");
+            }
+        };
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -82,12 +94,13 @@
 
                                             <form runat="server">
                                                 <label>Name</label>
-                                                <asp:TextBox class="form-control" ID="TextBox1" runat="server" placeholder="Enter the Full Name "></asp:TextBox>
+                                                <input type="text" class="form-control" id="name" placeholder="Enter the Full Name " />
+
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>UserName</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="Enter uniqe User Name "></asp:TextBox>
+                                                            <input type="text" class="form-control" id="username" placeholder="Enter the username" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -95,7 +108,7 @@
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>Password</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox3" runat="server" placeholder="Enter the Strong password..."></asp:TextBox>
+                                                            <input type="password" class="form-control" id="password" placeholder="Enter a Strong password..." />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -103,7 +116,7 @@
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>Contact Number</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox4" runat="server" placeholder="Enter the valid Mobile Number  "></asp:TextBox>
+                                                            <input type="text" class="form-control" id="contact_number" placeholder="Enter the valid Mobile Number" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,66 +124,92 @@
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>NIC</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox5" runat="server" placeholder="Enter the NIC Number"></asp:TextBox>
+                                                            <input type="text" class="form-control" id="nic" placeholder="Enter the NIC Number" />
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                                 <div class="row">
                                                     <div class="col">
-
-                                                        <asp:Button class="btn btn-danger" ID="Button1" runat="server" Text="ADD" />
+                                                        <button type="button" class="btn btn-danger" onclick="insertCaptain()">ADD</button>
                                                     </div>
                                                 </div>
-
                                             </form>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
 
+        <script defer>
+            function insertCaptain() {
+                var name = $('#name').val();
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var contact_number = $('#contact_number').val();
+                var nic = $('#nic').val();
 
+                console.log(name);
+                console.log(username);
+                console.log(password);
+                console.log(contact_number);
+                console.log(nic);
 
+                insert(name, username, password, contact_number, nic);
+            }
 
+            function insert(name, username, password, contact_number, nic) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:44362/CleaningService.svc/InsertGreenCaptain",
+                    data: JSON.stringify({
+                        "rEF_GCaptain": {
+                            NAME: name,
+                            USERNAME: username,
+                            PASSWORD: password,
+                            CONTACT_NUMBER: contact_number,
+                            NIC: nic
+                        }
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
 
+                        var obj = JSON.parse(data.InsertGreenCaptainResult);
+                        console.log(obj);
 
+                        if (obj.Success == true) {
+                            window.alert("Green Captain Added");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                })
+            }
+        </script>
 
-
-
-
-
-    <!-- Container-fluid Ends-->
-    <!-- latest jquery-->
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
-    <!-- feather icon js-->
-    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
-    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
-    <!-- Sidebar jquery-->
-    <script src="../assets/js/sidebar-menu.js"></script>
-    <script src="../assets/js/config.js"></script>
-    <!-- Bootstrap js-->
-    <script src="../assets/js/bootstrap/popper.min.js"></script>
-    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Plugins JS start-->
-    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
-    <script src="../assets/js/jsgrid/griddata.js"></script>
-    <script src="../assets/js/jsgrid/jsgrid.js"></script>
-    <!-- Plugins JS Ends-->
-    <!-- Theme js-->
-    <script src="../assets/js/script.js"></script>
-    <script src="../assets/js/theme-customizer/customizer.js"></script>
-    <!-- login js-->
-    <!-- Plugin used-->
+        <!-- feather icon js-->
+        <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+        <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+        <!-- Sidebar jquery-->
+        <script src="../assets/js/sidebar-menu.js"></script>
+        <script src="../assets/js/config.js"></script>
+        <!-- Bootstrap js-->
+        <script src="../assets/js/bootstrap/popper.min.js"></script>
+        <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+        <!-- Plugins JS start-->
+        <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+        <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
+        <script src="../assets/js/jsgrid/griddata.js"></script>
+        <script src="../assets/js/jsgrid/jsgrid.js"></script>
+        <!-- Plugins JS Ends-->
+        <!-- Theme js-->
+        <script src="../assets/js/script.js"></script>
+        <script src="../assets/js/theme-customizer/customizer.js"></script>
+        <!-- login js-->
+        <!-- Plugin used-->
 </asp:Content>

@@ -53,27 +53,28 @@
                 <div class="col-xl-7 p-0">
                     <div class="login-card">
                         <form class="theme-form login-form" runat="server">
-                            <h4>GTF Member Login</h4>
+                            <h4>GTF Member Register
+                            </h4>
                             <h6>Welcome To GTF Member</h6>
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fa fa-name"></i></span>
-                                    <asp:TextBox class="form-control" ID="name" runat="server" placeholder="Enter Your Name"></asp:TextBox>
+                                    <input type="text" class="form-control" id="full_name" placeholder="Enter Your Name" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Email Address</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <asp:TextBox class="form-control" ID="username" runat="server" placeholder="Enter Your Email"></asp:TextBox>
+                                    <input type="text" class="form-control" id="email" placeholder="Enter Your Email" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Contact Number</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                                    <asp:TextBox class="form-control" ID="contactnum" runat="server" placeholder="Enter Your Mobile Number"></asp:TextBox>
+                                    <input type="text" class="form-control" id="contact_number" placeholder="Enter Your Mobile Number" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -81,27 +82,60 @@
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
 
-                                    <asp:TextBox class="form-control" ID="password" runat="server" placeholder="*********"></asp:TextBox>
+                                    <input type="text" class="form-control" id="password" placeholder="*********" />
                                     <div class="show-hide"><span class="show"></span></div>
                                 </div>
                             </div>
-                            <%-- <div class="form-group">
-                                <div class="checkbox">
-                                    <input id="checkbox1" type="checkbox">
-                                    <label class="text-muted" for="checkbox1">Remember password</label>
-                                </div>
-                                
-                            </div> --%>
 
-
-                            <asp:Button class="btn btn-primary btn-block" href="./wmGTFHome.aspx" ID="Button1" runat="server" Text="J O I N " />
-                            <label>Do You Have an Account? </label> 
+                            <button type="button" class="btn btn-primary btn-block" id="Button1" onclick="RegisterGTF()">J O I N </button>
+                            <label>Do You Have an Account? </label>
                             <a href="./wmGTFlogin.aspx">Login</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script defer>
+            function RegisterGTF() {
+                var full_name = $('#full_name').val();
+                var email = $('#email').val();
+                var contact_number = $('#contact_number').val();
+                var password = $('#password').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:44362/CleaningService.svc/GTFMemberRegister",
+                    data: JSON.stringify({
+                        "rEF_GTFMember": {
+                            FULLNAME: full_name,
+                            EMAIL: email,
+                            CONTACTNUMBER: contact_number,
+                            PASSWORD: password
+                        }
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+
+
+                        var obj = JSON.parse(data.GTFMemberRegisterResult);
+                        console.log(obj);
+
+                        if (obj.Success == true) {
+                            const memberId = obj.dataTable[0].member_id;
+                            sessionStorage.setItem("member_id", memberId);
+
+                            window.alert("GTF Member Registered Successfully");
+                            window.location.replace("https://localhost:44369/wmGTF");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                })
+            }
+        </script>
 
 
     </section>

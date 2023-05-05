@@ -2809,6 +2809,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\images\vito-placeholder-img\" />
+    <Folder Include="assets\user_images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

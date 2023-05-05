@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CleaningManagementSystemAPI.CleaningService" CodeBehind="CleaningService.svc.cs" %>

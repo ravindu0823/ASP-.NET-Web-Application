@@ -8,9 +8,6 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-6">
-                       
-
-                      
                     </div>
                     <div class="col-sm-6">
                         <!-- Bookmark Start-->
@@ -32,13 +29,22 @@
                                         <div class="mb-3">
 
                                             <form runat="server">
-                                                <label>Topic</label>
-                                                <asp:TextBox class="form-control" ID="TextBox1" runat="server" placeholder="Gabage in area"></asp:TextBox>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <label>Select The Image</label>
+                                                            <asp:FileUpload class="form-control" ID="imageUpload" runat="server" />
+                                                            <asp:LinkButton ID="btnSave" runat="server" class="btn btn-secondary me-3" OnClick="UploadImage">Upload Image</asp:LinkButton>
+                                                            <asp:HiddenField ID="pathName" runat="server" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr />
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>Place Name:</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="Homagama"></asp:TextBox>
+                                                            <input type="text" class="form-control" id="place_name" placeholder="Location" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -46,7 +52,7 @@
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>Situation:</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox3" runat="server" placeholder="Explain the impact such as attracting wildlife, terrible smell and etc "></asp:TextBox>
+                                                            <input type="text" class="form-control" id="situation" placeholder="Explain the impact such as attracting wildlife, terrible smell and etc " />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -54,26 +60,25 @@
                                                     <div class="col">
                                                         <div class="mb-3">
                                                             <label>Select Location:</label>
-                                                            <asp:TextBox class="form-control" ID="TextBox4" runat="server" placeholder="Google Map selection"></asp:TextBox>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3">
-                                                            <label>Select The Image</label>
-                                                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                            <div id="googleMap" style="width: 100%; height: 700px;"></div>
                                                         </div>
                                                     </div>
                                                 </div>
 
 
 
+
+
                                                 <div class="row">
                                                     <div class="col">
+                                                        <button type="button" class="btn btn-pill btn-success" onclick="insertPlace()">ADD NEW PLACE</button>
+                                                    </div>
+                                                </div>
 
-                                                        <asp:Button class="btn btn-pill btn-success" ID="Button1" runat="server" Text="ADD NEW PLACE" />
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" id="lat" hidden />
+                                                        <input type="text" id="lng" hidden />
                                                     </div>
                                                 </div>
 
@@ -92,6 +97,131 @@
             </div>
         </div>
     </div>
+
+    <script defer>
+        function myMap() {
+
+            var locations = [
+                ['Bondi Beach', -33.890542, 151.274856, 4],
+                ['Coogee Beach', -33.923036, 151.259052, 5],
+                ['Cronulla Beach', -34.028249, 151.157507, 3],
+                ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+                ['Maroubra Beach', -33.950198, 151.259302, 1]
+            ];
+
+            var mapProp = {
+                center: new google.maps.LatLng(7.8731, 80.7718),
+                zoom: 7,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var infowindow = new google.maps.InfoWindow();
+            var marker, i;
+
+            /*for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                });
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+
+                *//*var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(-25.363882, 131.044922)
+            });*//*
+
+            marker.setMap(map);
+        }*/
+
+            // Get the Latitude and longitude
+            /*google.maps.event.addListener(map, 'click', function (event) {
+                alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
+            });*/
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                placeMarker(map, event.latLng);
+            });
+
+            var marker = null;
+            function placeMarker(map, location) {
+                $("#lat").val(location.lat());
+                $("#lng").val(location.lng());
+
+                if (marker != null) {
+                    marker.setMap(null);
+                }
+
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+                var infowindow = new google.maps.InfoWindow({
+                    content: 'Latitude: ' + location.lat() +
+                        '<br>Longitude: ' + location.lng()
+                });
+                infowindow.open(map, marker);
+            }
+
+
+        }
+
+        function insertPlace() {
+            var pathName = $('#<%= pathName.ClientID %>').val();
+            var place_name = $('#place_name').val();
+            var situation = $('#situation').val();
+            var latitude = $('#lat').val();
+            var longitude = $('#lng').val();
+            var memberId = sessionStorage.getItem("member_id");
+
+            console.log(pathName);
+            console.log(place_name);
+            console.log(situation);
+            console.log(latitude);
+            console.log(longitude);
+            console.log(memberId);
+
+            Place(place_name, situation, pathName, latitude, longitude, memberId);
+        }
+
+        function Place(placeName, situation, imagePath, lat, lng, addedBy) {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:44362/CleaningService.svc/AddPlace",
+                data: JSON.stringify({
+                    "rEF_Place": {
+                        PLACENAME: placeName,
+                        SITUATION: situation,
+                        IMAGEPATH: imagePath,
+                        LATITUDE: lat,
+                        LONGITUDE: lng,
+                        ADDEDBY: addedBy
+                    }
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+
+                    var obj = JSON.parse(data.AddPlaceResult);
+                    console.log(obj);
+
+                    if (obj.Success == true) {
+                        window.alert("Place added Successfully");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            })
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBidhd9jZ9N3-GTN-4_Mk7wDlQql8RSOcs&callback=myMap" defer></script>
+
     <!-- Container-fluid Ends-->
     <!-- latest jquery-->
     <script src="../assets/js/jquery-3.5.1.min.js"></script>

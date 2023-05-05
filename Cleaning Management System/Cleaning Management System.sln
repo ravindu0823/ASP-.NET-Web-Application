@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleaning Management System", "Cleaning Management System\Cleaning Management System.csproj", "{8379E3C9-9D92-41C9-B066-DBEC59466B67}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMasterAdmin", "WebMasterAdmin\WebMasterAdmin.csproj", "{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webmasterGTFmember", "webmasterGTFmember\webmasterGTFmember.csproj", "{78805EE1-1B97-44C8-A63B-52A4A4A87552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningManagementSystemAPI", "CleaningManagementSystemAPI\CleaningManagementSystemAPI.csproj", "{0760C9B2-52A3-4821-A373-69DC8627B820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REF_System", "REF_System\REF_System.csproj", "{4165C073-8B2A-4435-B614-3EEA3757A371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL_System", "BAL_System\BAL_System.csproj", "{27D0B488-F82E-4798-9BED-E05F0B637E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_System", "DAL_System\DAL_System.csproj", "{C1F9559F-58AB-4158-86F3-79FDE4816737}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8379E3C9-9D92-41C9-B066-DBEC59466B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8379E3C9-9D92-41C9-B066-DBEC59466B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8379E3C9-9D92-41C9-B066-DBEC59466B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8379E3C9-9D92-41C9-B066-DBEC59466B67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDEF5654-1682-4B37-BE0C-31C9B97BAD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +29,22 @@ Global
 		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78805EE1-1B97-44C8-A63B-52A4A4A87552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0760C9B2-52A3-4821-A373-69DC8627B820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0760C9B2-52A3-4821-A373-69DC8627B820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0760C9B2-52A3-4821-A373-69DC8627B820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0760C9B2-52A3-4821-A373-69DC8627B820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4165C073-8B2A-4435-B614-3EEA3757A371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4165C073-8B2A-4435-B614-3EEA3757A371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4165C073-8B2A-4435-B614-3EEA3757A371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4165C073-8B2A-4435-B614-3EEA3757A371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27D0B488-F82E-4798-9BED-E05F0B637E7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27D0B488-F82E-4798-9BED-E05F0B637E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27D0B488-F82E-4798-9BED-E05F0B637E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27D0B488-F82E-4798-9BED-E05F0B637E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

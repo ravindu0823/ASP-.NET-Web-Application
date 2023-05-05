@@ -38,6 +38,18 @@
 
     <!-- latest jquery-->
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            var sessionId = sessionStorage.getItem('admin_id');
+            console.log(sessionId);
+
+
+            if (sessionId != null) {
+                window.location.replace("https://localhost:44361/wm_adminHome");
+            }
+        };
+    </script>
 </head>
 <body>
     <section>
@@ -55,35 +67,77 @@
                                 <label>Email Address</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="example@.com"></asp:TextBox>
+                                    <input type="text" class="form-control" id="username" placeholder="example@.com" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
-                                   
-                                    <asp:TextBox class="form-control" ID="txtPassword" runat="server"  placeholder="*********"></asp:TextBox>
+
+                                    <input type="password" class="form-control" id="password" placeholder="*********" />
                                     <div class="show-hide"><span class="show"></span></div>
                                 </div>
                             </div>
-                            <%-- <div class="form-group">
-                                <div class="checkbox">
-                                    <input id="checkbox1" type="checkbox">
-                                    <label class="text-muted" for="checkbox1">Remember password</label>
-                                </div>
-                                
-                            </div> --%>
-                            
-                                <asp:Button  class="btn btn-primary btn-block" ID="Button5" runat="server" Text="L O G I N" OnClick="Button5_Click" />
-                            
+
+                            <button type="button" class="btn btn-primary btn-block" onclick="test()">L O G I N</button>
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
-       
+        <script defer>
+            function test() {
+                var username = $('#username').val();
+                var password = $('#password').val();
+
+                // console.log(username);
+                // console.log(password);
+
+                checkCredentials(username, password);
+            }
+
+            function checkCredentials(username, password) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:44362/CleaningService.svc/AuthenticateAdmin",
+                    data: JSON.stringify({
+                        "rEF_Admin": {
+                            USERNAME: username,
+                            PASSWORD: password
+                        }
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+
+
+                        var obj = JSON.parse(data.AuthenticateAdminResult);
+                        console.log(obj);
+
+                        if (obj.dataTable.length > 0) {
+                            const adminName = obj.dataTable[0].username;
+                            const adminId = obj.dataTable[0].id;
+
+                            sessionStorage.setItem("admin_name", adminName);
+                            sessionStorage.setItem("admin_id", adminId);
+
+                            window.alert("Welcome " + adminName);
+                            window.location.replace("https://localhost:44361/wm_adminHome");
+                        } else {
+                            window.alert("Username and Password is incorrect");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                })
+            }
+        </script>
+
+
     </section>
     <!-- page-wrapper end-->
 
