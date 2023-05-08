@@ -21,46 +21,74 @@
 
 
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="place_table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Place Name</th>
                             <th scope="col">Situation</th>
                             <th scope="col">Image</th>
-                            <th>Responce </th>
-                            <th>Delete Report</th>
-                            <th>Edit Report</th>
-
+                            <th scope="col">Response</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Children's Park Pathway, Colombo</td>
-                            <td>Broken glass bottles found in the public square, posing a safety risk to pedestrians and park visitors.</td>
-                            <td>
-                                <img src="../assets/sample/img1.jpg" width="100" height="100"></td>
-                            <td>pending..</td>
-                            <td>
-                                <button type="button" class="btn btn-pill btn-danger active">Delete</button></td>
-
-                            <td>
-                                <button type="button" class="btn btn-pill btn-warning btn-air-warning active">Edit</button>
-
-                            </td>
-
-                        </tr>
 
                     </tbody>
                 </table>
             </div>
         </div>
-
     </form>
 
-    <!-- Container-fluid Ends-->
-    <!-- latest jquery-->
+    <script defer>
+        window.onload = function () {
+            LoadAllPlacesById();
+        }
+
+        function LoadAllPlacesById() {
+            const table = $("#place_table");
+            var memberId = sessionStorage.getItem("member_id");
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:44362/CleaningService.svc/LoadAllPlacesById",
+                data: JSON.stringify({
+                    "rEF_Place": {
+                        ADDEDBY: memberId,
+                    }
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+
+                    var obj = JSON.parse(data.LoadAllPlacesByIdResult);
+                    // console.log(obj);
+
+                    var allPlaces = [];
+                    allPlaces = obj;
+
+                    $.each(allPlaces, function (index, item) {
+                        console.log(item);
+
+                        const row = $("<tr></tr>");
+                        const cell1 = $("<td></td>").text(item.id);
+                        const cell2 = $("<td></td>").text(item.place_name);
+                        const cell3 = $("<td></td>").text(item.situation);
+                        const cell4 = $("<td></td>");
+                        const image = $("<img width='200' height='200'>").attr("src", "https://localhost:44369/assets/user_images/" + item.image_path);
+                        const cell5 = $("<td></td>").text(item.status == 0 ? "Pending..." : "Approved");
+                        cell4.append(image);
+                        row.append(cell1, cell2, cell3, cell4, cell5);
+                        table.append(row);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            })
+        }
+    </script>
+
+
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
     <!-- feather icon js-->
     <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
