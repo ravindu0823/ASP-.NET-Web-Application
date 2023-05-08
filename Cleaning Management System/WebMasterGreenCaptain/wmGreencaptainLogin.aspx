@@ -40,7 +40,7 @@
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-            <section>
+    <section>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-5">
@@ -52,33 +52,25 @@
                             <h4>Green Captain Login</h4>
                             <h6>Welcome back </h6>
                             <div class="form-group">
-                                <label>Email Address</label>
+                                <label>Username</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <asp:TextBox class="form-control" ID="txtUsername" runat="server" placeholder="example@.com"></asp:TextBox>
+                                    <input type="text" class="form-control" id="username" placeholder="username" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
-                                   
-                                    <asp:TextBox class="form-control" ID="txtPassword" runat="server"  placeholder="*********"></asp:TextBox>
+
+                                    <input type="password" class="form-control" id="password" placeholder="*********" />
                                     <div class="show-hide"><span class="show"></span></div>
                                 </div>
                             </div>
-                            <%-- <div class="form-group">
-                                <div class="checkbox">
-                                    <input id="checkbox1" type="checkbox">
-                                    <label class="text-muted" for="checkbox1">Remember password</label>
-                                </div>
-                                
-                            </div> --%>
-                            
-                                
-                            <asp:Button  class="btn btn-primary btn-block" ID="Button1" runat="server"  Text="L O G I N" />
-                            
-                        
+
+                            <button type="button" class="btn btn-primary btn-block" onclick="AuthenticateGreenCaptain()">L O G I N</button>
+
+
                         </form>
                     </div>
                 </div>
@@ -86,7 +78,49 @@
         </div>
 
 
-        </section>
+        <script defer>
+            function AuthenticateGreenCaptain() {
+                var username = $('#username').val();
+                var password = $('#password').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:44362/CleaningService.svc/AuthenticateGreenCaptain",
+                    data: JSON.stringify({
+                        "rEF_GCaptain": {
+                            USERNAME: username,
+                            PASSWORD: password
+                        }
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+
+
+                        var obj = JSON.parse(data.AuthenticateGreenCaptainResult);
+                        console.log(obj);
+
+                        if (obj.dataTable.length > 0) {
+                            const captainName = obj.dataTable[0].name;
+                            const captainId = obj.dataTable[0].id;
+
+                            sessionStorage.setItem("member_name", captainName);
+                            sessionStorage.setItem("captain_id", captainId);
+
+                            window.alert("Welcome " + captainName);
+                            window.location.replace("https://localhost:44381/wmGreencaptainHome");
+                        } else {
+                            window.alert("Username and Password is incorrect");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                })
+            }
+        </script>
+
+    </section>
     <!-- page-wrapper end-->
 
     <!-- feather icon js-->

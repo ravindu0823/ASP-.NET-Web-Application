@@ -59,6 +59,28 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string ApprovePlace(REF_Place rEF_Place)
+        {
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                DataTable dt;
+                dt = bAL_Place.ApprovePlace(null, rEF_Place);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
         public string AuthenticateAdmin(REF_Admin rEF_Admin)
         {
             try
@@ -81,6 +103,28 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string AuthenticateGreenCaptain(REF_GCaptain rEF_GCaptain)
+        {
+            try
+            {
+                BAL_GCaptain bAL_GCaptain = new BAL_GCaptain();
+
+                DataTable dt;
+                dt = bAL_GCaptain.AuthenticateGreenCaptain(null, rEF_GCaptain);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
         public string AuthenticateMember(REF_GTFMember rEF_GTFMember)
         {
             try
@@ -89,6 +133,28 @@ namespace CleaningManagementSystemAPI
 
                 DataTable dt;
                 dt = bAL_GTFMember.AuthenticateMember(null, rEF_GTFMember);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
+        public string FlagPlace(REF_Place rEF_Place)
+        {
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                DataTable dt;
+                dt = bAL_Place.FlagPlace(null, rEF_Place);
                 Response response = new Response();
                 response.Success = true;
                 response.dataTable = dt;
@@ -147,6 +213,24 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string LoadAllPlaces()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                dt = bAL_Place.LoadAllPlaces(null);
+
+                return JsonConvert.SerializeObject(dt);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
         public string LoadAllPlacesById(REF_Place rEF_Place)
         {
             DataTable dt = new DataTable();
@@ -162,6 +246,28 @@ namespace CleaningManagementSystemAPI
             catch (Exception ex)
             {
                 return ex.ToString();
+            }
+        }
+
+        public string RejectPlace(REF_Place rEF_Place)
+        {
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                DataTable dt;
+                dt = bAL_Place.RejectPlace(null, rEF_Place);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
             }
         }
     }

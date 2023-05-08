@@ -11,6 +11,118 @@ namespace DAL_System
 {
     public class DAL_Place
     {
+        public DataTable LoadAllPlaces(DB_Handle oDB_Handle)
+        {
+            string sqlQuery;
+            DataTable oDataTable = new DataTable();
+            SqlCommand oSqlCommand;
+            SqlDataAdapter oSqlDataAdapter;
+            try
+            {
+                sqlQuery = "SP_GET_ALLPLACES";
+                oSqlCommand = new SqlCommand();
+                oSqlCommand.CommandText = sqlQuery;
+                oSqlCommand.CommandType = CommandType.StoredProcedure;
+                oSqlCommand.Connection = oDB_Handle.GetConnection();
+                oSqlCommand.Transaction = oDB_Handle.GetTransaction();
+                oSqlDataAdapter = new SqlDataAdapter(oSqlCommand);
+                oSqlDataAdapter.Fill(oDataTable);
+
+                return oDataTable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable ApprovePlace(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            string sqlQuery;
+            DataTable dataTable = new DataTable();
+            SqlCommand sqlCommand;
+            SqlDataAdapter sqlDataAdapter;
+
+            try
+            {
+                sqlQuery = "SP_APPROVE_PLACE";
+                sqlCommand = new SqlCommand();
+
+                sqlCommand.Parameters.AddWithValue("@placeId", rEF_Place.ID);
+
+                sqlCommand.CommandText = sqlQuery;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection = dB_Handle.GetConnection();
+                sqlCommand.Transaction = dB_Handle.GetTransaction();
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable RejectPlace(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            string sqlQuery;
+            DataTable dataTable = new DataTable();
+            SqlCommand sqlCommand;
+            SqlDataAdapter sqlDataAdapter;
+
+            try
+            {
+                sqlQuery = "SP_REJECT_PLACE";
+                sqlCommand = new SqlCommand();
+
+                sqlCommand.Parameters.AddWithValue("@placeId", rEF_Place.ID);
+
+                sqlCommand.CommandText = sqlQuery;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection = dB_Handle.GetConnection();
+                sqlCommand.Transaction = dB_Handle.GetTransaction();
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable FlagPlace(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            string sqlQuery;
+            DataTable dataTable = new DataTable();
+            SqlCommand sqlCommand;
+            SqlDataAdapter sqlDataAdapter;
+
+            try
+            {
+                sqlQuery = "SP_FLAG_PLACE";
+                sqlCommand = new SqlCommand();
+
+                sqlCommand.Parameters.AddWithValue("@placeId", rEF_Place.ID);
+
+                sqlCommand.CommandText = sqlQuery;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection = dB_Handle.GetConnection();
+                sqlCommand.Transaction = dB_Handle.GetTransaction();
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlDataAdapter.Fill(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable AddPlace(DB_Handle dB_Handle, REF_Place rEF_Place)
         {
             string sqlQuery;

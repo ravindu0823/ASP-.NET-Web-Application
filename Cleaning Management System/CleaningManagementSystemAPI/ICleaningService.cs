@@ -75,5 +75,50 @@ namespace CleaningManagementSystemAPI
         ResponseFormat = WebMessageFormat.Json)]
 
         string LoadAllPlacesById(REF_Place rEF_Place);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        UriTemplate = "AuthenticateGreenCaptain",
+        BodyStyle = WebMessageBodyStyle.Wrapped,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+
+        string AuthenticateGreenCaptain(REF_GCaptain rEF_GCaptain);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        UriTemplate = "ApprovePlace",
+        BodyStyle = WebMessageBodyStyle.Wrapped,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+
+        string ApprovePlace(REF_Place rEF_Place);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        UriTemplate = "RejectPlace",
+        BodyStyle = WebMessageBodyStyle.Wrapped,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+
+        string RejectPlace(REF_Place rEF_Place);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        UriTemplate = "FlagPlace",
+        BodyStyle = WebMessageBodyStyle.Wrapped,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+
+        string FlagPlace(REF_Place rEF_Place);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "LoadAllPlaces",
+        BodyStyle = WebMessageBodyStyle.Wrapped,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json)]
+
+        string LoadAllPlaces();
     }
 }
