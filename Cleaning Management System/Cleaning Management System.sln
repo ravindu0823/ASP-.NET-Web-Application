@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL_System", "BAL_System\BA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_System", "DAL_System\DAL_System.csproj", "{C1F9559F-58AB-4158-86F3-79FDE4816737}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMasterGreenCaptain", "WebMasterGreenCaptain\WebMasterGreenCaptain.csproj", "{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1F9559F-58AB-4158-86F3-79FDE4816737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
