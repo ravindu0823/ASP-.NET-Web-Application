@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_System", "DAL_System\DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMasterGreenCaptain", "WebMasterGreenCaptain\WebMasterGreenCaptain.csproj", "{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMasterCollectors", "WebMasterCollectors\WebMasterCollectors.csproj", "{0BB323C8-4CBF-4644-B34B-F4360C71AD49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E25502C-AEA1-41C7-98CB-A0BB5C7FB95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB323C8-4CBF-4644-B34B-F4360C71AD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB323C8-4CBF-4644-B34B-F4360C71AD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB323C8-4CBF-4644-B34B-F4360C71AD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB323C8-4CBF-4644-B34B-F4360C71AD49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
