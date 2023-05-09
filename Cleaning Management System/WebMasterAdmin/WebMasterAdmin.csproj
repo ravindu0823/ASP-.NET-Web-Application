@@ -2710,6 +2710,7 @@
     <Content Include="assets\scss\whether-icon\_whether-icon.scss" />
     <Content Include="wm_admin.aspx" />
     <Content Include="wm_adminArtical.aspx" />
+    <Content Include="wm_adminCollector.aspx" />
     <Content Include="wm_adminHome.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2797,6 +2798,13 @@
     </Compile>
     <Compile Include="wm_adminArtical.aspx.designer.cs">
       <DependentUpon>wm_adminArtical.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wm_adminCollector.aspx.cs">
+      <DependentUpon>wm_adminCollector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wm_adminCollector.aspx.designer.cs">
+      <DependentUpon>wm_adminCollector.aspx</DependentUpon>
     </Compile>
     <Compile Include="wm_adminHome.aspx.cs">
       <DependentUpon>wm_adminHome.aspx</DependentUpon>

@@ -1,0 +1,6 @@
+E:\Temp\dhanu\ASP-.NET-Web-Application\Cleaning Management System\REF_System\bin\Debug\REF_System.dll
+E:\Temp\dhanu\ASP-.NET-Web-Application\Cleaning Management System\REF_System\bin\Debug\REF_System.pdb
+E:\Temp\dhanu\ASP-.NET-Web-Application\Cleaning Management System\REF_System\obj\Debug\REF_System.csproj.AssemblyReference.cache
+E:\Temp\dhanu\ASP-.NET-Web-Application\Cleaning Management System\REF_System\obj\Debug\REF_System.csproj.CoreCompileInputs.cache
+E:\Temp\dhanu\ASP-.NET-Web-Application\Cleaning Management System\REF_System\obj\Debug\REF_System.dll
+E:\Temp\dhanu\ASP-.NET-Web-Application\Cleaning Management System\REF_System\obj\Debug\REF_System.pdb

@@ -29,10 +29,11 @@
                             <th scope="col">Situation</th>
                             <th scope="col">Image</th>
                             <th scope="col">Response</th>
+                            <th scope="col">Edit Record</th>
+                            <th scope="col">Delete Record</th>
                         </tr>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
             </div>
@@ -42,6 +43,33 @@
     <script defer>
         window.onload = function () {
             LoadAllPlacesById();
+        }
+
+        function deletePlace(id) {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:44362/CleaningService.svc/DeletePlace",
+                data: JSON.stringify({
+                    "rEF_Place": {
+                        ID: id
+                    }
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+
+                    var obj = JSON.parse(data.DeletePlaceResult);
+                    console.log(obj);
+
+                    if (obj.Success == true) {
+                        window.alert("Place Deleted Successfully");
+                        location.reload();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            })
         }
 
         function LoadAllPlacesById() {
@@ -75,9 +103,23 @@
                         const cell3 = $("<td></td>").text(item.situation);
                         const cell4 = $("<td></td>");
                         const image = $("<img width='200' height='200'>").attr("src", "https://localhost:44369/assets/user_images/" + item.image_path);
-                        const cell5 = $("<td></td>").text(item.status == 0 ? "Pending..." : "Approved");
+                        const cell5 = $("<td></td>").text(item.status == 0 ? "Pending..." : item.status == 1 ? "Approved" : item.status == 3 ? "Approved and Flagged" : item.status == 2 ? "Rejected" : item.status == 4 ? "Cleaned" : "Error");
+                        const cell6 = $("<td></td>");
+
+                        if (item.status == 0) {
+                            var a = $("<a></a>").attr("href", "wmGTFUpdateReport.aspx?place_id=" + item.id);
+                            var button = $("<button class='btn btn-pill btn-warning active' type='button'>Edit Record</button>")
+                            var cell7 = $("<td></td>");
+                            var btnDelete = $("<button type='button' class='btn btn-pill btn-danger active'>Delete Record</button>").attr("onClick", "deletePlace(" + item.id + ")");
+
+
+                            a.append(button);
+                            cell6.append(a);
+                            cell7.append(btnDelete);
+                        }
+
                         cell4.append(image);
-                        row.append(cell1, cell2, cell3, cell4, cell5);
+                        row.append(cell1, cell2, cell3, cell4, cell5, cell6, cell7);
                         table.append(row);
                     });
                 },

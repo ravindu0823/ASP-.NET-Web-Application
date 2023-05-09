@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BAL_Admin.cs" />
     <Compile Include="BAL_Article.cs" />
+    <Compile Include="BAL_Collector.cs" />
     <Compile Include="BAL_GCaptain.cs" />
     <Compile Include="BAL_GTFMember.cs" />
     <Compile Include="BAL_Place.cs" />

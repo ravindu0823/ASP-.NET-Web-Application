@@ -11,6 +11,45 @@ namespace BAL_System
 {
     public class BAL_Place
     {
+        public DataTable LoadAllApprovedPlaces(DB_Handle oDB_Handle)
+        {
+            DAL_Place dAL_Place = new DAL_Place();
+            DataTable oDataTable = new DataTable();
+            DataTable _dt = null;
+
+            try
+            {
+                bool newDBHandle = false;
+
+                if (oDB_Handle == null)
+                {
+                    oDB_Handle = new DB_Handle();
+                    oDB_Handle.OpenConnection();
+                    oDB_Handle.BeginTransaction();
+                    newDBHandle = true;
+                }
+                oDataTable = dAL_Place.LoadAllApprovedPlaces(oDB_Handle);
+                if (newDBHandle)
+                {
+                    oDB_Handle.CommitTransaction();
+                    oDB_Handle.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    oDB_Handle.RollbackTransaction();
+                    oDB_Handle.CloseConnection();
+                }
+                catch (Exception)
+                {
+                    return _dt;
+                }
+            }
+            return oDataTable;
+        }
+
         public DataTable LoadAllPlaces(DB_Handle oDB_Handle)
         {
             DAL_Place dAL_Place = new DAL_Place();
@@ -89,6 +128,45 @@ namespace BAL_System
             return dataTable;
         }
 
+        public DataTable LoadPlaceById(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            DAL_Place dAL_Place = new DAL_Place();
+            DataTable dataTable = new DataTable();
+            DataTable _dt = null;
+
+            try
+            {
+                bool newDBHandle = false;
+
+                if (dB_Handle == null)
+                {
+                    dB_Handle = new DB_Handle();
+                    dB_Handle.OpenConnection();
+                    dB_Handle.BeginTransaction();
+                    newDBHandle = true;
+                }
+                dataTable = dAL_Place.LoadPlaceById(dB_Handle, rEF_Place);
+                if (newDBHandle)
+                {
+                    dB_Handle.CommitTransaction();
+                    dB_Handle.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    dB_Handle.RollbackTransaction();
+                    dB_Handle.CloseConnection();
+                }
+                catch (Exception)
+                {
+                    return _dt;
+                }
+            }
+            return dataTable;
+        }
+
 
         public DataTable ApprovePlace(DB_Handle dB_Handle, REF_Place rEF_Place)
         {
@@ -107,6 +185,84 @@ namespace BAL_System
                     newDBHandle = true;
                 }
                 dataTable = dAL_Place.ApprovePlace(dB_Handle, rEF_Place);
+                if (newDBHandle)
+                {
+                    dB_Handle.CommitTransaction();
+                    dB_Handle.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    dB_Handle.RollbackTransaction();
+                    dB_Handle.CloseConnection();
+                }
+                catch (Exception)
+                {
+                    return _dt;
+                }
+            }
+
+            return dataTable;
+        }
+
+        public DataTable DonePlace(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            DAL_Place dAL_Place = new DAL_Place();
+            DataTable dataTable = new DataTable();
+            DataTable _dt = null;
+
+            try
+            {
+                bool newDBHandle = false;
+                if (dB_Handle == null)
+                {
+                    dB_Handle = new DB_Handle();
+                    dB_Handle.OpenConnection();
+                    dB_Handle.BeginTransaction();
+                    newDBHandle = true;
+                }
+                dataTable = dAL_Place.DonePlace(dB_Handle, rEF_Place);
+                if (newDBHandle)
+                {
+                    dB_Handle.CommitTransaction();
+                    dB_Handle.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    dB_Handle.RollbackTransaction();
+                    dB_Handle.CloseConnection();
+                }
+                catch (Exception)
+                {
+                    return _dt;
+                }
+            }
+
+            return dataTable;
+        }
+
+        public DataTable DeletePlace(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            DAL_Place dAL_Place = new DAL_Place();
+            DataTable dataTable = new DataTable();
+            DataTable _dt = null;
+
+            try
+            {
+                bool newDBHandle = false;
+                if (dB_Handle == null)
+                {
+                    dB_Handle = new DB_Handle();
+                    dB_Handle.OpenConnection();
+                    dB_Handle.BeginTransaction();
+                    newDBHandle = true;
+                }
+                dataTable = dAL_Place.DeletePlace(dB_Handle, rEF_Place);
                 if (newDBHandle)
                 {
                     dB_Handle.CommitTransaction();
@@ -224,6 +380,45 @@ namespace BAL_System
                     newDBHandle = true;
                 }
                 dataTable = dAL_Place.AddPlace(dB_Handle, rEF_Place);
+                if (newDBHandle)
+                {
+                    dB_Handle.CommitTransaction();
+                    dB_Handle.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    dB_Handle.RollbackTransaction();
+                    dB_Handle.CloseConnection();
+                }
+                catch (Exception)
+                {
+                    return _dt;
+                }
+            }
+
+            return dataTable;
+        }
+
+        public DataTable UpdatePlace(DB_Handle dB_Handle, REF_Place rEF_Place)
+        {
+            DAL_Place dAL_Place = new DAL_Place();
+            DataTable dataTable = new DataTable();
+            DataTable _dt = null;
+
+            try
+            {
+                bool newDBHandle = false;
+                if (dB_Handle == null)
+                {
+                    dB_Handle = new DB_Handle();
+                    dB_Handle.OpenConnection();
+                    dB_Handle.BeginTransaction();
+                    newDBHandle = true;
+                }
+                dataTable = dAL_Place.UpdatePlace(dB_Handle, rEF_Place);
                 if (newDBHandle)
                 {
                     dB_Handle.CommitTransaction();

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DAL_Admin.cs" />
     <Compile Include="DAL_Article.cs" />
+    <Compile Include="DAL_Collector.cs" />
     <Compile Include="DAL_GCaptain.cs" />
     <Compile Include="DAL_GTFMember.cs" />
     <Compile Include="DAL_Place.cs" />

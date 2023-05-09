@@ -163,6 +163,7 @@
     <Content Include="assets\css\vector-map.css" />
     <Content Include="assets\css\vertical-menu.css" />
     <Content Include="assets\css\whether-icon.css" />
+    <Content Include="assets\favicon.ico" />
     <Content Include="assets\fonts\calendar\icon.svg" />
     <Content Include="assets\fonts\feather\activity.svg" />
     <Content Include="assets\fonts\feather\airplay.svg" />
@@ -1076,6 +1077,24 @@
     <Content Include="assets\images\user\8.jpg" />
     <Content Include="assets\images\user\9.jpg" />
     <Content Include="assets\images\user\user.png" />
+    <Content Include="assets\img\2.jpg" />
+    <Content Include="assets\img\3.png" />
+    <Content Include="assets\img\5.jpg" />
+    <Content Include="assets\img\6.png" />
+    <Content Include="assets\img\8.jpg" />
+    <Content Include="assets\img\9.png" />
+    <Content Include="assets\img\bg-masthead.jpg" />
+    <Content Include="assets\img\bg-signup.jpg" />
+    <Content Include="assets\img\demo-image-.jpg" />
+    <Content Include="assets\img\gallery\after-1.jpg" />
+    <Content Include="assets\img\gallery\after-2.PNG" />
+    <Content Include="assets\img\gallery\after-3.PNG" />
+    <Content Include="assets\img\gallery\cleaning-1.jpg" />
+    <Content Include="assets\img\gallery\cleaning-2.jpg" />
+    <Content Include="assets\img\gallery\cleaning-5.PNG" />
+    <Content Include="assets\img\gallery\garbage-1.jpg" />
+    <Content Include="assets\img\gallery\garbage-2.jpg" />
+    <Content Include="assets\img\gallery\garbage-4.jpg" />
     <Content Include="assets\json\datatable-extension\data.txt" />
     <Content Include="assets\js\animation\animate-custom.js" />
     <Content Include="assets\js\animation\aos\aos-init.js" />
@@ -1769,6 +1788,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css1\style.css" />
+    <Content Include="css\styles.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2707,10 +2728,58 @@
     <Content Include="assets\scss\vertical-menu\_vertical-menu.scss" />
     <Content Include="assets\scss\whether-icon.scss" />
     <Content Include="assets\scss\whether-icon\_whether-icon.scss" />
+    <Content Include="js1\main.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\boxicons\css\animations.css" />
+    <Content Include="vendor\boxicons\css\boxicons.css" />
+    <Content Include="vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="vendor\boxicons\css\transformations.css" />
+    <Content Include="vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="vendor\glightbox\css\glightbox.css" />
+    <Content Include="vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="vendor\glightbox\css\plyr.css" />
+    <Content Include="vendor\glightbox\css\plyr.min.css" />
+    <Content Include="vendor\glightbox\js\glightbox.js" />
+    <Content Include="vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="vendor\php-email-form\validate.js" />
+    <Content Include="vendor\remixicon\remixicon.css" />
+    <Content Include="vendor\remixicon\remixicon.svg" />
+    <Content Include="vendor\remixicon\remixicon.symbol.svg" />
+    <Content Include="vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="vendor\swiper\swiper-bundle.min.js" />
     <Content Include="wmGTF.aspx" />
+    <Content Include="wmGTFArticles.aspx" />
+    <Content Include="wmGTFGallary.aspx" />
     <Content Include="wmGTFHome.aspx" />
+    <Content Include="wmGTFLanding.aspx" />
     <Content Include="wmGTFlogin.aspx" />
     <Content Include="wmGTFReg.aspx" />
+    <Content Include="wmGTFUpdateReport.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2802,12 +2871,33 @@
     <Compile Include="wmGTF.aspx.designer.cs">
       <DependentUpon>wmGTF.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wmGTFArticles.aspx.cs">
+      <DependentUpon>wmGTFArticles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wmGTFArticles.aspx.designer.cs">
+      <DependentUpon>wmGTFArticles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wmGTFGallary.aspx.cs">
+      <DependentUpon>wmGTFGallary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wmGTFGallary.aspx.designer.cs">
+      <DependentUpon>wmGTFGallary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="wmGTFHome.aspx.cs">
       <DependentUpon>wmGTFHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="wmGTFHome.aspx.designer.cs">
       <DependentUpon>wmGTFHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wmGTFLanding.aspx.cs">
+      <DependentUpon>wmGTFLanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wmGTFLanding.aspx.designer.cs">
+      <DependentUpon>wmGTFLanding.aspx</DependentUpon>
     </Compile>
     <Compile Include="wmGTFlogin.aspx.cs">
       <DependentUpon>wmGTFlogin.aspx</DependentUpon>
@@ -2823,6 +2913,13 @@
     <Compile Include="wmGTFReg.aspx.designer.cs">
       <DependentUpon>wmGTFReg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wmGTFUpdateReport.aspx.cs">
+      <DependentUpon>wmGTFUpdateReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wmGTFUpdateReport.aspx.designer.cs">
+      <DependentUpon>wmGTFUpdateReport.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2833,6 +2930,42 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="vendor\bootstrap-icons\bootstrap-icons.scss" />
+    <Content Include="vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="vendor\remixicon\remixicon.eot" />
+    <Content Include="vendor\remixicon\remixicon.less" />
+    <Content Include="vendor\remixicon\remixicon.ttf" />
+    <Content Include="vendor\remixicon\remixicon.woff" />
+    <Content Include="vendor\remixicon\remixicon.woff2" />
+    <Content Include="vendor\swiper\swiper-bundle.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

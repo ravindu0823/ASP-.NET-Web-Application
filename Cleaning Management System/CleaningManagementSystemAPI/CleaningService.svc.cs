@@ -37,6 +37,28 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string AddCollector(REF_Collector rEF_Collector)
+        {
+            try
+            {
+                BAL_Collector bAL_Collector = new BAL_Collector();
+
+                DataTable dt;
+                dt = bAL_Collector.AddCollector(null, rEF_Collector);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
         public string AddPlace(REF_Place rEF_Place)
         {
             try
@@ -103,6 +125,28 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string AuthenticateCollector(REF_Collector rEF_Collector)
+        {
+            try
+            {
+                BAL_Collector bAL_Collector = new BAL_Collector();
+
+                DataTable dt;
+                dt = bAL_Collector.AuthenticateCollector(null, rEF_Collector);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
         public string AuthenticateGreenCaptain(REF_GCaptain rEF_GCaptain)
         {
             try
@@ -133,6 +177,50 @@ namespace CleaningManagementSystemAPI
 
                 DataTable dt;
                 dt = bAL_GTFMember.AuthenticateMember(null, rEF_GTFMember);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
+        public string DeletePlace(REF_Place rEF_Place)
+        {
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                DataTable dt;
+                dt = bAL_Place.DeletePlace(null, rEF_Place);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
+        public string DonePlace(REF_Place rEF_Place)
+        {
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                DataTable dt;
+                dt = bAL_Place.DonePlace(null, rEF_Place);
                 Response response = new Response();
                 response.Success = true;
                 response.dataTable = dt;
@@ -213,6 +301,42 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string LoadAllApprovedPlaces()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                dt = bAL_Place.LoadAllApprovedPlaces(null);
+
+                return JsonConvert.SerializeObject(dt);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
+        public string LoadAllArticles()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                BAL_Article bAL_Article = new BAL_Article();
+
+                dt = bAL_Article.LoadAllArticles(null);
+
+                return JsonConvert.SerializeObject(dt);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
         public string LoadAllPlaces()
         {
             DataTable dt = new DataTable();
@@ -249,6 +373,24 @@ namespace CleaningManagementSystemAPI
             }
         }
 
+        public string LoadPlaceById(REF_Place rEF_Place)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                dt = bAL_Place.LoadPlaceById(null, rEF_Place);
+
+                return JsonConvert.SerializeObject(dt);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
         public string RejectPlace(REF_Place rEF_Place)
         {
             try
@@ -257,6 +399,28 @@ namespace CleaningManagementSystemAPI
 
                 DataTable dt;
                 dt = bAL_Place.RejectPlace(null, rEF_Place);
+                Response response = new Response();
+                response.Success = true;
+                response.dataTable = dt;
+                return JsonConvert.SerializeObject(response);
+            }
+            catch (Exception ex)
+            {
+                Response response = new Response();
+                response.Success = false;
+                response.Message = "Error! Something went wrong. Please contact the system administrator. (" + ex.Message + ")";
+                return JsonConvert.SerializeObject("Error! Something went wrong. Please contact the system administrator.");
+            }
+        }
+
+        public string UpdatePlace(REF_Place rEF_Place)
+        {
+            try
+            {
+                BAL_Place bAL_Place = new BAL_Place();
+
+                DataTable dt;
+                dt = bAL_Place.UpdatePlace(null, rEF_Place);
                 Response response = new Response();
                 response.Success = true;
                 response.dataTable = dt;
